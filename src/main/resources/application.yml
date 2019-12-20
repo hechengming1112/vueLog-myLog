@@ -1,0 +1,21 @@
+vuelog:
+  name: hecm
+  version: 1.0.1
+  copyrightYear: 2019
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vuelog?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  devtools:
+    restart:
+      enabled: true
+  freemarker:
+    cache: false
+
+mybatis:
+  typeAliasesPackage: com.hecm.vuelog.*.domain
+  mapperLocations: classpath*:mapper/*Mapper.xml
+
