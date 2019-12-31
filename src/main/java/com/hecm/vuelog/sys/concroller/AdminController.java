@@ -1,5 +1,6 @@
 package com.hecm.vuelog.sys.concroller;
 
+import com.hecm.vuelog.common.core.base.RespBean;
 import com.hecm.vuelog.sys.domain.Article;
 import com.hecm.vuelog.sys.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,13 @@ public class AdminController {
 
         return map;
 
+    }
+    @RequestMapping(value = "/article/dustbin", method = RequestMethod.PUT)
+    public RespBean updateArticleState(Long[] aids, Integer state) {
+        if (articleService.updateArticleState(aids, state) == aids.length) {
+            return new RespBean("success", "删除成功!");
+        }
+        return new RespBean("error", "删除失败!");
     }
 
 
