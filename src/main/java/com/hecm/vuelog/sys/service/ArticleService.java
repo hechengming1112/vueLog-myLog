@@ -115,7 +115,21 @@ public class ArticleService {
     public int restoreArticle(Integer articleId) {
         return articleMapper.updateArticleStateById(articleId, 1); // 从回收站还原在原处
     }
+    /**
+     * 获取最近七天的日期
+     * @return
+     */
+    public List<String> getCategories() {
+        return articleMapper.getCategories(Util.getCurrentUser().getId());
+    }
 
+    /**
+     * 获取最近七天的数据
+     * @return
+     */
+    public List<Integer> getDataStatistics() {
+        return articleMapper.getDataStatistics(Util.getCurrentUser().getId());
+    }
 
 
 }

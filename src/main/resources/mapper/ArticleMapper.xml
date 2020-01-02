@@ -109,4 +109,12 @@ WHERE
     <update id="updateArticleStateById" >
         UPDATE article SET state=#{state} WHERE id = #{articleId}
     </update>
+
+
+    <select id="getCategories" resultType="String" parameterType="long">
+        SELECT countDate from pv WHERE uid=#{uid} ORDER by countDate limit 7
+    </select>
+    <select parameterType="long" id="getDataStatistics" resultType="int">
+        SELECT pv from pv WHERE uid=#{uid} ORDER by countDate limit 7
+    </select>
 </mapper>
