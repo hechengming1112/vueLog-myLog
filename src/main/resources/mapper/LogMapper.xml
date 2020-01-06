@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hecm.vuelog.sys.mapper.ISysLogMapper">
+   <insert id="insertLog" parameterType="SysLog">
+       INSERT INTO log (
+        title,
+        businessType,
+        browser,
+        operId,
+        opername,
+        operUrl,
+        operIp,
+        operlocation,
+        method,
+        operParam,
+        status,
+        errorMsg,
+        operTime,
+        execTime
+        )
+        VALUES
+            (
+            #{title},
+            #{businessType},
+            #{browser},
+            #{operId},
+            #{opername},
+            #{operUrl},
+            #{operIp},
+            #{operlocation},
+            #{method},
+            #{operParam},
+            #{status},
+            #{errorMsg},
+            sysdate(),
+            sysdate()
+            )
+   </insert>
+
+</mapper>

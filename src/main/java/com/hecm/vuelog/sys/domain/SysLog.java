@@ -34,7 +34,7 @@ public class SysLog implements Serializable {
     /** 操作时间 */
     private Timestamp operTime;
     /** 执行时间 */
-    private Timestamp  execTime;
+    private String  execTime;
     /** 创建时间  */
     private Timestamp createTime;
 
@@ -151,11 +151,12 @@ public class SysLog implements Serializable {
         this.operTime = operTime;
     }
 
-    public Timestamp getExecTime() {
+
+    public String getExecTime() {
         return execTime;
     }
 
-    public void setExecTime(Timestamp execTime) {
+    public void setExecTime(String execTime) {
         this.execTime = execTime;
     }
 

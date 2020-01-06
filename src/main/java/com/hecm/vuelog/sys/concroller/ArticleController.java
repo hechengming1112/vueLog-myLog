@@ -1,9 +1,11 @@
 package com.hecm.vuelog.sys.concroller;
 
+import com.hecm.vuelog.common.annotation.Log;
 import com.hecm.vuelog.common.core.base.RespBean;
 import com.hecm.vuelog.common.util.Util;
 import com.hecm.vuelog.sys.domain.Article;
 import com.hecm.vuelog.sys.service.ArticleService;
+import com.hecm.vuelog.sys.service.IConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +42,7 @@ public class ArticleController {
     public Article getArticleById(@PathVariable Long aid) {
         return articleService.getArticleById(aid);
     }
+    @Log(title = "文章删除",businessType = IConstant.BUSINESS_TYPE_DELETE)
     @RequestMapping(value = "/dustbin", method = RequestMethod.PUT)
     public RespBean updateArticleState(Long[] aids, Integer state) {
         if (articleService.updateArticleState(aids, state) == aids.length) {
